@@ -1,6 +1,8 @@
 import os
 from pynput import keyboard
 from pynput.keyboard import Key
+from colorama import Fore
+from colorama import Style
 
 
 def update_cur(math):
@@ -34,7 +36,6 @@ def chose(index):
 def on_key_release(key):
     if key == Key.up:
         update_cur("-")
-
     elif key == Key.down:
         update_cur("+")
     elif key == Key.enter:
@@ -45,7 +46,7 @@ def on_key_release(key):
 def export_menu(opt: list, cur: int):
     for i in range(len(opt)):
         if i == cur:
-            print(">>", opt[i])
+            print(f"{Fore.CYAN}>> {opt[i]}{Style.RESET_ALL}")
         else:
             print("  ", opt[i])
 
