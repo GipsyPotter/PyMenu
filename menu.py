@@ -5,9 +5,9 @@ from pynput.keyboard import Key
 
 def update_cur(math):
     global cur
-    max = 4
+    global maxi
     if math == "+":
-        if cur < max - 1:
+        if cur < maxi - 1:
             cur += 1
         else:
             cur = 0
@@ -15,11 +15,11 @@ def update_cur(math):
         if cur > 0:
             cur -= 1
         else:
-            cur = max - 1
+            cur = maxi - 1
 
 
 def chose(index):
-    global chosed
+    global chosen
     if index == 0:
         print("Chose 1")
     elif index == 1:
@@ -28,7 +28,7 @@ def chose(index):
         print("Chose 3")
     elif index == 3:
         print("Chose 4")
-    chosed = True
+    chosen = True
 
 
 def on_key_release(key):
@@ -55,13 +55,14 @@ def clear():
 
 
 if __name__ == '__main__':
-    opt = ["opt 1", "opt 2", "opt 3", "opt 4"]
-    cur = 0
-    chosed = False
+    opt = ["opt 1", "opt 2", "opt 3", "opt 4"]  # Create a list of options
+    maxi = len(opt)  # Get the max index
+    cur = 0  # Set the cursor to 0
+    chosen = False  # Set the chosen to False
     while True:
-        if chosed:
+        if chosen:
             break
         clear()
         export_menu(opt, cur)
-        with keyboard.Listener(on_release=on_key_release) as listener:
+        with keyboard.Listener(on_release = on_key_release) as listener:
             listener.join()
