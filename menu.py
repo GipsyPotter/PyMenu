@@ -60,9 +60,7 @@ if __name__ == '__main__':
     maxi = len(opt)  # Get the max index
     cur = 0  # Set the cursor to 0
     chosen = False  # Set the chosen to False
-    while True:
-        if chosen:
-            break
+    while chosen is False:
         clear()
         export_menu(opt, cur)
         with keyboard.Listener(on_release = on_key_release) as listener:
