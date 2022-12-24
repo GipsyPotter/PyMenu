@@ -1,5 +1,6 @@
 # PyMenu
 Python CLI menu 
+#Working on an OOP verson - maybe develop it into a library
 ## Usage
 ```bash
 python3 menu.py
